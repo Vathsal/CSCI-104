@@ -18,6 +18,23 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\datetime.h" />
+    <ClInclude Include="..\tweet.h" />
+    <ClInclude Include="..\twiteng.h" />
+    <ClInclude Include="..\user.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\datetime.cpp" />
+    <ClCompile Include="..\tweet.cpp" />
+    <ClCompile Include="..\twiteng.cpp" />
+    <ClCompile Include="..\twitter.cpp" />
+    <ClCompile Include="..\user.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\twitter.dat" />
+    <None Include="..\twitterLarge.dat" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{CC581115-D3F8-48B9-80B3-3155B13181C6}</ProjectGuid>
     <RootNamespace>TwitterBlog</RootNamespace>
@@ -111,23 +128,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\datetime.cpp" />
-    <ClCompile Include="..\tweet.cpp" />
-    <ClCompile Include="..\twiteng.cpp" />
-    <ClCompile Include="..\twitter.cpp" />
-    <ClCompile Include="..\user.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\datetime.h" />
-    <ClInclude Include="..\tweet.h" />
-    <ClInclude Include="..\twiteng.h" />
-    <ClInclude Include="..\user.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\twitter.dat" />
-    <None Include="..\twitterLarge.dat" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
