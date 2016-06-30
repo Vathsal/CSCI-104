@@ -74,6 +74,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -90,6 +91,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -110,6 +112,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\datetime.cpp" />
+    <ClCompile Include="..\tweet.cpp" />
+    <ClCompile Include="..\twiteng.cpp" />
+    <ClCompile Include="..\twitter.cpp" />
+    <ClCompile Include="..\user.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\datetime.h" />
+    <ClInclude Include="..\tweet.h" />
+    <ClInclude Include="..\twiteng.h" />
+    <ClInclude Include="..\user.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\twitter.dat" />
+    <None Include="..\twitterLarge.dat" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
