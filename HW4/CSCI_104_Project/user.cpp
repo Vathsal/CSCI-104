@@ -6,6 +6,7 @@
 #include <iterator>
 #include "user.h"
 #include "tweet.h"
+#include "twiteng.h"
 
 using namespace std;
 
@@ -19,22 +20,22 @@ User::~User()
 	// ??
 }
 
-std::string User::name() const
+string User::name() const
 {
 	return this->name_;
 }
 
-std::set<User*> User::followers() const
+set<User*> User::followers() const
 {
 	return this->followersSet_;
 }
 
-std::set<User*> User::following() const
+set<User*> User::following() const
 {
 	return this->followingSet_;
 }
 
-std::list<Tweet*> User::tweets() const
+list<Tweet*> User::tweets() const
 {
 	return this->tweetList_;
 }
@@ -59,11 +60,11 @@ void User::addAtMentionTweet(Tweet* t)
 	this->atMentionTweetList_.push_back(t);
 }
 
-std::vector<Tweet*> User::getFeed()
+vector<Tweet*> User::getFeed(map<string, User*> &uMap)
 {
+	string firstWordOfTweet;
 	// create a vector of tweets 
 	vector<Tweet*> allTweets;
-
 	// retrive all tweets of this user
 	list<Tweet*> utl = this->tweets();
 	// push the tweets into allTweets
@@ -81,9 +82,37 @@ std::vector<Tweet*> User::getFeed()
 		// push the tweets into allTweets
 		for (list<Tweet*>::iterator it3 = ftl.begin(); it3 != ftl.end(); ++it3)
 		{
+			/* ---- @ MENTION -------
+			//extract the first word from tweet
+			stringstream ss((*it3)->text());
+			ss >> firstWordOfTweet;
+			//check if its starts with '@'
+			if (firstWordOfTweet.substr(0, 1) == "@")
+			{
+				firstWordOfTweet = firstWordOfTweet.substr(1, firstWordOfTweet.length());
+				// retrieve the userObject for that @mention user
+				User* atMentionUser_obj = uMap.find(firstWordOfTweet)->second;
+				// access his following list
+				set<User*> temp2 = this->following();
+				set<User*>::const_iterator temp3 = temp2.find(atMentionUser_obj);
+				if (temp3 != temp2.end())
+				{
+					allTweets.push_back(*it3);
+				}
+			}
+			else
+			{
+				allTweets.push_back(*it3);
+			}
+			*/
 			allTweets.push_back(*it3);
 		}
 	}
 
 	return allTweets;
+}
+
+list<Tweet*> User::getAtMentionTweet() const
+{
+	return this->atMentionTweetList_;
 }

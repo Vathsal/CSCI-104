@@ -55,11 +55,13 @@ public:
 
 	void addNewTweet(string& myStr);
 
+	map<string, User*> getUserMap() const;
+
 private:
 	/* Add any other data members or helper functions here  */
-	map<string, User*> userMap;
+	map<string, User*> userMap_;
 	// create a map to hold the hashtags and the associated tweets
-	map<string, set<Tweet*>, Comparator> hashTagMap;
+	map<string, set<Tweet*>, Comparator> hashTagMap_;
 };
 
 #endif

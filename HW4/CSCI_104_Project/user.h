@@ -5,6 +5,7 @@
 #include <set>
 #include <list>
 #include <vector>
+#include <map>
 
 using namespace std;
 
@@ -15,25 +16,25 @@ class User
 {
 public:
 	/*  Constructor */
-	User(std::string name);
+	User(string name);
 	/*  Destructor */
 	~User();
 
 	/* Gets the name of the user
 	* @return name of the user */
-	std::string name() const;
+	string name() const;
 
 	/* Gets all the followers of this user
 	* @return Set of Users who follow this user */
-	std::set<User*> followers() const;
+	set<User*> followers() const;
 
 	/* Gets all the users whom this user follows
 	* @return Set of Users whom this user follows */
-	std::set<User*> following() const;
+	set<User*> following() const;
 
 	/* Gets all the tweets this user has posted
 	* @return List of tweets this user has posted */
-	std::list<Tweet*> tweets() const;
+	list<Tweet*> tweets() const;
 
 	/* Adds a follower to this users set of followers 
 	* @param u User to add as a follower */
@@ -47,13 +48,18 @@ public:
 	* @param t new Tweet posted by this user */
 	void addTweet(Tweet* t);
 
+	/* Adds the given tweet as a @Mention Tweet of this user
+	* @param t : Tweet containing this user's @mention */
 	void addAtMentionTweet(Tweet* t);
 
 	/*Produces the list of Tweets that represent this users feed/timeline
 	*  It should contain in timestamp order all the tweets from
 	*  this user and all the tweets from all the users whom this user follows
 	* @return vector of pointers to all the tweets from this user and those they follow in timestamp order */
-	vector<Tweet*> getFeed();
+	vector<Tweet*> getFeed(map<string , User*> &uMap);
+
+	/* Gets all the @mention tweets of this user */
+    list<Tweet*> getAtMentionTweet() const;
 
 private:
 	/* Other data members or helper functions */
@@ -62,7 +68,6 @@ private:
 	set<User*> followingSet_;
 	list<Tweet*> tweetList_;
 	list<Tweet*> atMentionTweetList_;
-
 };
 
 #endif

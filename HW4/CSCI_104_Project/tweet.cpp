@@ -68,7 +68,7 @@ bool Tweet::operator<(const Tweet& other) const
 
 ostream& operator<<(ostream& os, const Tweet& t)
 {
-	return os << t.dt_.year_ << "-" << t.dt_.month_ << "-" << t.dt_.day_ << " " << t.dt_.hour_ << "::" << t.dt_.min_ << "::" << t.dt_.sec_;
+	return os << t.dt_.year_ << "-" << t.dt_.month_ << "-" << t.dt_.day_ << " " << t.dt_.hour_ << ":" << t.dt_.min_ << ":" << t.dt_.sec_;
 }
 
 void Tweet::populateHashTags(string& text)

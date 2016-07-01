@@ -102,7 +102,7 @@ int main(int argc, char* argv[])
 	cout << "=====================================" << endl;
 	
 	// pass the input as it is entered by  the user
-	//parseInput(twit);
+	parseInput(twit);
 	
 	// dump feeds on Quit
 	twit.dumpFeeds();

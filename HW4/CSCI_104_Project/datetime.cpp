@@ -1,4 +1,5 @@
 #include "datetime.h"
+#include <iomanip>
 
 using namespace std;
 
@@ -40,7 +41,12 @@ bool DateTime::operator<(const DateTime& other) const
 
 ostream& operator<<(std::ostream& os, const DateTime& other) 
 {
-	return os << other.year_ << "-" << other.month_ << "-" << other.day_ << " " << other.hour_ << "::" << other.min_ << "::" << other.sec_;
+	return os << setw(4) << setfill('0') << other.year_ << "-" <<
+		         setw(2) << setfill('0') << other.month_ << "-" << 
+		         setw(2) << setfill('0') << other.day_ << " " << 
+		         setw(2) << setfill('0') << other.hour_ << ":" << 
+		         setw(2) << setfill('0') << other.min_ << ":" << 
+		         setw(2) << setfill('0') << other.sec_;
 }
 
 istream& operator >> (std::istream& is, DateTime& dt) 
