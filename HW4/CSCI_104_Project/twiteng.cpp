@@ -214,7 +214,7 @@ void TwitEng::addTweet(string& username, DateTime& time, string& text)
 	// add it to the list of tweets
 	currentTweetUser_obj->addTweet(currentTweet_obj);
 
-	/* -------- @ MENTION -----------
+	// -------- @ MENTION -----------
 	//extract the first word
 	stringstream ss2(text);
 	ss2 >> firstWordOfTweet;
@@ -226,7 +226,7 @@ void TwitEng::addTweet(string& username, DateTime& time, string& text)
 		// retrieve the userObject for that user
 		User* atMentionUser_obj = userMap_.find(firstWordOfTweet)->second;
 		// wrap this text in a tweet object
-		Tweet* atMentionTweet_obj = new Tweet(atMentionUser_obj, time, text);
+		Tweet* atMentionTweet_obj = new Tweet(currentTweetUser_obj, time, text);
 		// check if the author is in following list of @mentioned user
 		//const bool is_in = atMentionUser_obj->following().find(currentTweetUser_obj) != atMentionUser_obj->following().end();
 		set<User*> temp1 = atMentionUser_obj->following();
@@ -258,8 +258,7 @@ void TwitEng::addTweet(string& username, DateTime& time, string& text)
 			}
 		}
 	}
-	*/
-
+	
 	// populate the hashTags for this tweet
 	currentTweet_obj->populateHashTags(text);
 	// retrieve all the hashTags for this tweet

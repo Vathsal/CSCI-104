@@ -32,8 +32,8 @@
     <ClCompile Include="..\user.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\twitter.dat" />
-    <None Include="..\twitterLarge.dat" />
+    <None Include="twitter.dat" />
+    <None Include="twitterLarge.dat" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{CC581115-D3F8-48B9-80B3-3155B13181C6}</ProjectGuid>

@@ -82,7 +82,7 @@ vector<Tweet*> User::getFeed(map<string, User*> &uMap)
 		// push the tweets into allTweets
 		for (list<Tweet*>::iterator it3 = ftl.begin(); it3 != ftl.end(); ++it3)
 		{
-			/* ---- @ MENTION -------
+			// ---- @ MENTION -------
 			//extract the first word from tweet
 			stringstream ss((*it3)->text());
 			ss >> firstWordOfTweet;
@@ -104,8 +104,8 @@ vector<Tweet*> User::getFeed(map<string, User*> &uMap)
 			{
 				allTweets.push_back(*it3);
 			}
-			*/
-			allTweets.push_back(*it3);
+			
+		//	allTweets.push_back(*it3);
 		}
 	}
 
